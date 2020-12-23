@@ -1,0 +1,22 @@
+body {
+    margin:0;
+}
+
+.container {
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card {
+    padding: 20px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    border: 0 solid;
+    background-color: #fff;
+    border-radius: 30px;
+    aspect-ratio: 16 / 9;
+}
