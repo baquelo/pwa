@@ -38,5 +38,13 @@
       "url": "/tomorrow?source=pwa",
       "icons": [{ "src": "/images/tomorrow.png", "sizes": "192x192" }]
     }
-  ]
+  ],
+  "share_target": {
+    "action": "share.html",
+    "params": {
+      "title": "name",
+      "text": "description",
+      "url": "https://the-pwa.netlify.app/"
+    }
+  }
 }
