@@ -1,26 +1,33 @@
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js')
-            .then((reg) => {
-                console.log('Service worker registered.', reg);
-            });
+            .then((registration) => {
+                console.log('Service worker registered.', registration);
+            })
+            .catch(error => {
+                console.log('Service worker error on register', error)
+            })
     });
 }
 
 const btnShare = document.querySelector('#btnShare');
 
 btnShare.addEventListener('click', () => {
-    console.log('[btnShare] Clicked', navigator);
-    if (navigator.share) {
-        navigator.share({
-            title: 'The PWA',
-            text: 'This is my first PWA page',
-            url: 'https://the-pwa.netlify.app'
-        })
-            .then(() => console.log('Successful share'))
-            .catch((error) => console.log('Error sharing', error));
+    try {
+        if (!navigator.share) {
+            console.log('Navigator don\'t have the share functionality');
+            return
+        }
+            navigator.share({
+                title: 'The PWA',
+                text: 'This is my first PWA page',
+                // url: 'https://the-pwa.netlify.app'
+            })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+    } catch (err) {
+        console.error("Share failed:", err.message);
     }
-
 })
 
 // let installPrompt;
